@@ -1,9 +1,27 @@
+
+using CRUDAPPLICATION.BLL;
+using CRUDAPPLICATION.DATABASE;
+//using Microsoft.Extensions.DependencyInjection;
+
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<EmployeeDbContext>(opt=>opt.UseSqlServer(builder.Configuration.GetConnectionString("DataConnection")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+
+builder.Services.AddScoped<EmployeeRepository>();
+
+
+
+
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,7 +35,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
