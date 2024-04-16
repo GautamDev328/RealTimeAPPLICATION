@@ -11,7 +11,7 @@ namespace CRUDAPPLICATION.DATABASE
         {
 
         }
-        public DbSet<EmployeeProfile> employeeProfiles { get; set; } = null;
+        public DbSet<EmployeeProfile> employeeProfiles { get; set; } 
     }
 
 }

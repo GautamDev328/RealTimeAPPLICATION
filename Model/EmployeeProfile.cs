@@ -13,7 +13,7 @@ namespace CRUDAPPLICATION.Model
         public string City { get; set; }    
         public  string  Mobile { get; set; }
         public string Gender { get; set; }
-        public  DateTime? DateTime { get; set; } 
+        public  DateOnly DateOfBirth { get; set; } 
         public int Age { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace CRUDAPPLICATION.BLL
 
         public void AllData(EmployeeProfile employeeProfile)
         {
-           employeeDbContext.employeeProfiles.ToList().ForEach(p=>p.Equals(employeeProfile));
+            employeeDbContext.employeeProfiles.ToList().ForEach(p => p.Equals(employeeProfile));
             employeeDbContext.SaveChanges();
         }
 
@@ -33,6 +33,13 @@ namespace CRUDAPPLICATION.BLL
             return employee;
         }
 
+        public List<EmployeeProfile> GetAll()
+        {
+            var a = employeeDbContext.employeeProfiles.ToList();
+            employeeDbContext.SaveChanges();
+            return a;
+        }
+
         public void insert(EmployeeProfile employeeProfile)
         {
             employeeDbContext.employeeProfiles.Add(employeeProfile);
@@ -42,41 +49,27 @@ namespace CRUDAPPLICATION.BLL
 
         }
 
-        public void Search(int id)
-        {
-        employeeDbContext.employeeProfiles.Where(s => s.id == id).FirstOrDefault();
-            employeeDbContext.SaveChanges(true);
-            
-        }
+
+
+        //public EmployeeRepository Search(int id)
+        //{
+        //employeeDbContext.employeeProfiles.Where(s => s.id == id).FirstOrDefault();
+        //    employeeDbContext.SaveChanges(true);
+
+        //}
 
         public void update(EmployeeProfile employeeProfile)
         {
-           employeeDbContext.employeeProfiles.Update(employeeProfile);
+            employeeDbContext.employeeProfiles.Update(employeeProfile);
             employeeDbContext.SaveChanges();
         }
 
 
-
-        //public EmployeeProfile List(EmployeeProfile employeeProfile)
-        //{
-        //     employeeDbContext.employeeProfiles.ToList();
-        //    //employeeDbContext.SaveChanges();
-        //    return employeeProfile;
-        //}
-
-
+    
+     public     EmployeeProfile Search(int id)
+        {
+            var a = employeeDbContext.employeeProfiles.Where(s => s.id == id).FirstOrDefault();
+            return a;
+        }
     }
 }
-        //public void List(EmployeeProfile employeeProfile)
-        //{
-        //    employeeDbContext.employeeProfiles.ToList();
-        //    employeeDbContext.SaveChanges();
-        //}
-    //    public List<EmployeeProfile> ListEmployeeProfiles()
-    //    {
-    //        // Retrieve all employee profiles from the database and return as a list
-    //        return employeeDbContext.employeeProfiles.ToList();
-    //    }
-    //}
-    
-

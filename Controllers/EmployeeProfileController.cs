@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+  
+    [Route("api/[controller]")]
+   // [ApiController]
     public class EmployeeProfileController : ControllerBase
     {
       
@@ -18,21 +20,14 @@ namespace CRUDAPPLICATION.Controllers
                 _employeeRepository = employeeRepository;
             }
 
-        //[HttpGet("ListData")]
-        //public IActionResult List<EmployeeProfilemp>()
-        //{
-        //    _employeeRepository.List<EmployeeProfilemp>();
-        //    return Ok(1);
-
-
-        //}
+    
         [HttpGet("ListAllData")]
-        public IActionResult AllData(EmployeeProfile employeeProfile)
+        public List<EmployeeProfile> GetEmployees() 
         {
-           _employeeRepository.AllData(employeeProfile);
-            return Ok(1);
-
+                   var a= _employeeRepository.GetAll();
+                     return a;
         }
+       
         [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
@@ -52,10 +47,10 @@ namespace CRUDAPPLICATION.Controllers
         }
 
         [HttpGet("SeachById")]
-        public ActionResult Search(int id)
+        public IActionResult Search(int id)
         {
-            _employeeRepository.Search(id);
-            return Ok();
+            var a=_employeeRepository.Search(id);
+            return Ok(a);
         }
 
             [HttpPost("CreateEmployee")]
@@ -74,27 +69,6 @@ namespace CRUDAPPLICATION.Controllers
         }
 
      
-            //[HttpPatch("EmployeeEdit")]
-            //public IActionResult update(EmployeeProfile employeeProfile)
-            //{
-            //    employeeRepository.update(employeeProfile);
-            //    return Ok(employeeRepository);
-            //}
-            //[HttpGet("ListData")]
-            //public IActionResult List(EmployeeProfile employeeProfile)
-            //{
-            //   _employeeRepository.List(employeeProfile);
-            //    return Ok(_employeeRepository);
-
-            //}
-
-            //[HttpGet("ListData")]
-            //public EmployeeProfile List(EmployeeProfile employeeProfile)
-            //{
-            //  var a=  _employeeRepository.List;
-            //    return Ok(employeeProfile);
-
-            //}
 
         }
 }

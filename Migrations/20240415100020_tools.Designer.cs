@@ -4,6 +4,7 @@ using CRUDAPPLICATION.DATABASE;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUDAPPLICATION.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
-    partial class EmployeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240415100020_tools")]
+    partial class tools
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,8 +44,8 @@ namespace CRUDAPPLICATION.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Designation")
                         .IsRequired()
