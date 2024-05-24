@@ -4,6 +4,7 @@ using CRUDAPPLICATION.DATABASE;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUDAPPLICATION.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
-    partial class EmployeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240506104852_modeldeone")]
+    partial class modeldeone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,50 @@ namespace CRUDAPPLICATION.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AdminLoginHRLOGIN", b =>
+                {
+                    b.Property<int>("HrLoginHR_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("adminLoginsAdmin_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("HrLoginHR_Id", "adminLoginsAdmin_Id");
+
+                    b.HasIndex("adminLoginsAdmin_Id");
+
+                    b.ToTable("AdminLoginHRLOGIN");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.AdminLogin", b =>
+                {
+                    b.Property<int>("Admin_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Admin_Id"));
+
+                    b.Property<string>("Admine_Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Admine_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Admine_Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Admine_Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Admin_Id");
+
+                    b.ToTable("adminlogin");
+                });
 
             modelBuilder.Entity("CRUDAPPLICATION.Model.City", b =>
                 {
@@ -135,6 +182,49 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("designations");
                 });
 
+            modelBuilder.Entity("CRUDAPPLICATION.Model.EmployeeLogin", b =>
+                {
+                    b.Property<int>("Employee_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Employee_ID"));
+
+                    b.Property<int?>("AdminLoginAdmin_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Employee_Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Employee_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Employee_Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Employee_Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Employee_Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HRLOGINHR_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Employee_ID");
+
+                    b.HasIndex("AdminLoginAdmin_Id");
+
+                    b.HasIndex("HRLOGINHR_Id");
+
+                    b.ToTable("EmployeeLogins");
+                });
+
             modelBuilder.Entity("CRUDAPPLICATION.Model.EmployeeProfile", b =>
                 {
                     b.Property<int>("id")
@@ -193,13 +283,6 @@ namespace CRUDAPPLICATION.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmployeeQueryMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("GetDateOnly")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Emp_Id");
 
                     b.ToTable("employeeQuery");
@@ -222,6 +305,35 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("gender");
                 });
 
+            modelBuilder.Entity("CRUDAPPLICATION.Model.HRLOGIN", b =>
+                {
+                    b.Property<int>("HR_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HR_Id"));
+
+                    b.Property<string>("HR_Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HR_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HR_Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HR_Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HR_Id");
+
+                    b.ToTable("hrlogin");
+                });
+
             modelBuilder.Entity("CRUDAPPLICATION.Model.RelationModel", b =>
                 {
                     b.Property<int>("Relat_Id")
@@ -229,10 +341,6 @@ namespace CRUDAPPLICATION.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Relat_Id"));
-
-                    b.Property<string>("MobileNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Relation_Name")
                         .IsRequired()
@@ -260,25 +368,6 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("roleWise");
                 });
 
-            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWiseOnlyEmployee", b =>
-                {
-                    b.Property<int>("RoleWiseonlyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleWiseonlyId"));
-
-                    b.Property<string>("RoleWiseonlyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RoleWiseonlyId");
-
-                    b.ToTable("RoleWiseOnlyEmployees");
-                });
-
             modelBuilder.Entity("CRUDAPPLICATION.Model.StateModel", b =>
                 {
                     b.Property<int>("Id")
@@ -298,6 +387,42 @@ namespace CRUDAPPLICATION.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("states");
+                });
+
+            modelBuilder.Entity("AdminLoginHRLOGIN", b =>
+                {
+                    b.HasOne("CRUDAPPLICATION.Model.HRLOGIN", null)
+                        .WithMany()
+                        .HasForeignKey("HrLoginHR_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CRUDAPPLICATION.Model.AdminLogin", null)
+                        .WithMany()
+                        .HasForeignKey("adminLoginsAdmin_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.EmployeeLogin", b =>
+                {
+                    b.HasOne("CRUDAPPLICATION.Model.AdminLogin", null)
+                        .WithMany("EmployeeLogin")
+                        .HasForeignKey("AdminLoginAdmin_Id");
+
+                    b.HasOne("CRUDAPPLICATION.Model.HRLOGIN", null)
+                        .WithMany("EmployeeLogin")
+                        .HasForeignKey("HRLOGINHR_Id");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.AdminLogin", b =>
+                {
+                    b.Navigation("EmployeeLogin");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.HRLOGIN", b =>
+                {
+                    b.Navigation("EmployeeLogin");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,18 +7,18 @@ namespace CRUDAPPLICATION.Model
     {
         [Key]
         public int id { get; set; }
-        [Required]
+
         [DisplayName("Enter the FirstName")]
-        public string  FirstName { get; set; }
+        public string FirstName { get; set; }
         [DisplayName("Enter the LastName")]
 
         public string? LastName { get; set; } = " ";
-        
+
         [DisplayName("Enter the Designation")]
         [Required]
 
         public string Designation { get; set; }
-       
+
         [DisplayName("Enter the Address")]
         [Required]
 
@@ -36,7 +36,7 @@ namespace CRUDAPPLICATION.Model
         //[Required(ErrorMessage = "Mobile number is required")]
 
 
-     //   public string Mobile { get; set; }
+        //   public string Mobile { get; set; }
         [DisplayName("Enter the Gender")]
         [Required]
 

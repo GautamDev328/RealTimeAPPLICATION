@@ -4,6 +4,7 @@ using CRUDAPPLICATION.DATABASE;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUDAPPLICATION.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
-    partial class EmployeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240517093403_addmodelRolewiseonlyemployee")]
+    partial class addmodelRolewiseonlyemployee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,7 +263,7 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("roleWise");
                 });
 
-            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWiseOnlyEmployee", b =>
+            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWise_Only_Employee_Data_Search_", b =>
                 {
                     b.Property<int>("RoleWiseonlyId")
                         .ValueGeneratedOnAdd()
@@ -276,7 +279,7 @@ namespace CRUDAPPLICATION.Migrations
 
                     b.HasKey("RoleWiseonlyId");
 
-                    b.ToTable("RoleWiseOnlyEmployees");
+                    b.ToTable("roleWise_Only_Employee_Data_Search_s");
                 });
 
             modelBuilder.Entity("CRUDAPPLICATION.Model.StateModel", b =>

@@ -1,26 +1,53 @@
-
-using CRUDAPPLICATION.BLL;
+using CRUDAPPLICATION.BLL.IRepository;
+using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.DATABASE;
+using CRUDAPPLICATION.Model;
+using Microsoft.AspNetCore.Identity;
+
+
 //using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.EntityFrameworkCore;
+//using Microsoft.Extensions.Options;
+//using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<EmployeeDbContext>(opt=>opt.UseSqlServer(builder.Configuration.GetConnectionString("DataConnection")));
+builder.Services.AddDbContext<EmployeeDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DataConnection")));
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 
-builder.Services.AddScoped<EmployeeRepository>();
+//builder.Services.AddTransient<IStateRepository, StateRepository>();
 
+//builder.Services.AddScoped<StateRepository>();
 
+builder.Services.AddScoped<EmployeeProfileRepository>();
+builder.Services.AddScoped<StateRepository>();
+
+builder.Services.AddScoped<CustomerPricesRespository>();
+//builder.Services.AddScoped<AdminLoginRepository>();
+builder.Services.AddScoped<CountryRepository>();
+builder.Services.AddScoped<CityRepository>();
+builder.Services.AddScoped<DepartmentRepository>();
+builder.Services.AddScoped<DesignationRepository>();
+//builder.Services.AddScoped<EmployeeLoginRepository>();
+builder.Services.AddScoped<EmployeeQueryRepository>();
+builder.Services.AddScoped<GenderRepository>();
+//builder.Services.AddScoped<HRLOGINRESPOROTY>();
+builder.Services.AddScoped<RELATIONREPOSITORY>();
+builder.Services.AddScoped<ROLEWISEREPSITORY>();
+builder.Services.AddScoped<RolewiseonlyemployeeRepository>();
 
 
 builder.Services.AddHttpContextAccessor();
+//builder.Services.AddControllersWithViews();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

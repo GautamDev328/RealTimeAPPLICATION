@@ -4,6 +4,7 @@ using CRUDAPPLICATION.DATABASE;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUDAPPLICATION.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
-    partial class EmployeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240516113528_relationmodelchange")]
+    partial class relationmodelchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,25 +261,6 @@ namespace CRUDAPPLICATION.Migrations
                     b.HasKey("Role_ID");
 
                     b.ToTable("roleWise");
-                });
-
-            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWiseOnlyEmployee", b =>
-                {
-                    b.Property<int>("RoleWiseonlyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleWiseonlyId"));
-
-                    b.Property<string>("RoleWiseonlyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RoleWiseonlyId");
-
-                    b.ToTable("RoleWiseOnlyEmployees");
                 });
 
             modelBuilder.Entity("CRUDAPPLICATION.Model.StateModel", b =>
