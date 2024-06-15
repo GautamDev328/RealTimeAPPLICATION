@@ -5,7 +5,7 @@
 namespace CRUDAPPLICATION.Migrations
 {
     /// <inheritdoc />
-    public partial class addmodelpartnerlogin : Migration
+    public partial class updatesoonalias : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,6 +17,6 @@ namespace CRUDAPPLICATION.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
 
-        } 
+        }
     }
 }

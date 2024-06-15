@@ -7,8 +7,8 @@ namespace CRUDAPPLICATION.BLL.IRepository
         public List<StateModel> states();
         public void CreateState(StateModel state);
         public void UpdateState(StateModel state);
-        public void DeleteState(int id);
-        public StateModel DetailsState(int id);
-        public StateModel SeachById(int id);
+        public void DeleteState(StateModel state);
+        public void DetailsState(StateModel state);
+        public void SeachById(int id);
     }
 }

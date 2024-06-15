@@ -1,7 +1,6 @@
 ﻿using CRUDAPPLICATION.BLL.IRepository;
 using CRUDAPPLICATION.DATABASE;
 using CRUDAPPLICATION.Model;
-using System.Numerics;
 
 namespace CRUDAPPLICATION.BLL.Repository
 {
@@ -21,40 +20,30 @@ namespace CRUDAPPLICATION.BLL.Repository
             EmployeeDb.SaveChanges();
         }
 
-        public void DeleteDesignationModel(int   id)
+        public void DeleteDesignationModel(DesignationModel designationModel)
         {
-            var delete = EmployeeDb.designations.Where(s => s.DesigId == id).FirstOrDefault();
-                           EmployeeDb.designations.Remove(delete);
-            EmployeeDb.SaveChanges();
-
+            throw new NotImplementedException();
         }
 
-        public DesignationModel DetailsDesignationModel(int  id)
+        public void DetailsDesignationModel(DesignationModel designationModel)
         {
-            var details = EmployeeDb.designations.Where(s => s.DesigId == id).FirstOrDefault();
-            return details;
+            throw new NotImplementedException();
         }
 
         public List<DesignationModel> GetALLDesignationData()
         {
-            var list = EmployeeDb.designations.ToList();
+           var list=EmployeeDb.designations.ToList();
             return list;
         }
 
-        public DesignationModel SearchById(int id)
+        public void SearchById(int id)
         {
-            var search = EmployeeDb.designations.Where(s => s.DesigId == id).FirstOrDefault();
-            return search;
+            throw new NotImplementedException();
         }
 
         public void UpdateDesignationModel(DesignationModel designationModel)
         {
-            EmployeeDb.designations.Update(designationModel);
-            EmployeeDb.SaveChanges();
-
-        }
-           
-
+            throw new NotImplementedException();
         }
     }
-
+}

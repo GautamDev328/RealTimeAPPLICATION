@@ -4,7 +4,7 @@ using CRUDAPPLICATION.Model;
 
 namespace CRUDAPPLICATION.BLL.Repository
 {
-    public class DepartmentRepository : IDepartmentRepository
+    public class DepartmentRepository:IDepartmentRepository
     {
         EmployeeDbContext employeeDbContext;
         public DepartmentRepository(EmployeeDbContext _employeeDbContext)
@@ -28,29 +28,22 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public void UpdateDepartment(Department department)
         {
-           employeeDbContext.department.Update(department);
-            employeeDbContext.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public void DeleteDepartment(int id)
+        public void DeleteDepartment(Department department)
         {
-            var delete = employeeDbContext.department.Where(s => s.Dep_Id == id).FirstOrDefault();// Linque 
-             employeeDbContext.department.Remove(delete);
-             employeeDbContext.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public Department SearchById(int id)
+        public void SearchById(int id)
         {
-            var a= employeeDbContext.department.Where(s=>s.Dep_Id==id).FirstOrDefault();
-            return a;
+            throw new NotImplementedException();
         }
 
-        public Department DetailsDepartments(int id)
+        public void DetailsDepartments(Department department)
         {
-              var a=employeeDbContext.department.Where(s => s.Dep_Id == id).FirstOrDefault();
-            return a;
+            throw new NotImplementedException();
         }
-
-     
     }
 }

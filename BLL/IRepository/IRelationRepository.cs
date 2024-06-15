@@ -8,9 +8,9 @@ namespace CRUDAPPLICATION.BLL.IRepository
         public void CreateRelaitonModel(RelationModel relationModel);
 
         public void UpdateRelaitonModel(RelationModel relationModel);
-        public void DeleteRelaitonModel(int  id);
-        public RelationModel DetailsRelaitonModel(int id);
-        public RelationModel SeachById(int id);
+        public void DeleteRelaitonModel(RelationModel relationModel);
+        public void DetailsRelaitonModel(RelationModel relationModel);
+        public void SeachById(int id);
 
     }
 

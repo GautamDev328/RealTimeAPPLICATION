@@ -26,29 +26,5 @@ namespace CRUDAPPLICATION.Controllers
             var list = _Irolewoserepsoitory.GetRoleWiseRoleAll();
             return list;
         }
-        [HttpPut("UpdateRoleWise")]
-        public IActionResult UpdateRoleWiseModel(RoleWiseModel roleWiseModel)
-        {
-            _Irolewoserepsoitory.UpdateRoleWiseModel(roleWiseModel);
-            return Ok(1);
-        }
-        [HttpDelete("DeleteRoleWise")]
-        public IActionResult DeleteRoleWiseModel(int id)
-        {
-            _Irolewoserepsoitory.DeleteRoleWiseModel(id);
-            return Ok(1);
-        }
-        [HttpGet("SearchRolseWise")]
-        public RoleWiseModel SearchRole(int id)
-        {
-            var searchrole=_Irolewoserepsoitory.SearchById(id);
-            return searchrole;
-        }
-        [HttpGet("DetaiRolseWise")]
-        public RoleWiseModel DetailsRoleWise(int id)
-        {
-            var deltailrolsewise = _Irolewoserepsoitory.DetailsRoleWiseModel(id);
-            return deltailrolsewise;
-        }
     }
 }

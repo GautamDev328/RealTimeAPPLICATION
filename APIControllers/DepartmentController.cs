@@ -27,34 +27,6 @@ namespace CRUDAPPLICATION.Controllers
             var list = _DepartmentRepository.GetAllDepartmentData();
             return list;
         }
-        [HttpPut("UpdateDepartment")]
-        public IActionResult UpdateDepartment(Department department)
-        {
-             _DepartmentRepository.UpdateDepartment(department);
-            return Ok(1);
-        }
-        [HttpDelete("DeleteDepartment")]
-        public IActionResult DeleteDepartment(int id)
-        {
-            _DepartmentRepository.DeleteDepartment(id);
-            return Ok(1);
-        }
-      
-        [HttpGet("DetailDepartment")]
-        public Department DetailsDepartments(int id)
-        {
-          var dep= _DepartmentRepository.DetailsDepartments(id);
-            return dep;
-        }
-        [HttpGet("SearchDepartment")]
-        public Department SearchDepartments(int id)
-        {
-            var search = _DepartmentRepository.SearchById(id);
-            return search;
-        }
-
-
-
     }
 
 }

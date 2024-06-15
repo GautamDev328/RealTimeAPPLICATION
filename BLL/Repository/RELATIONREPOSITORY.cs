@@ -17,35 +17,30 @@ namespace CRUDAPPLICATION.BLL.Repository
             _EMP.SaveChanges();
         }
 
-        public void DeleteRelaitonModel(int id)
+        public void DeleteRelaitonModel(RelationModel relationModel)
         {
-            var del = _EMP.relationModels.Where(s => s.Relat_Id == id).FirstOrDefault();
-                          _EMP.relationModels.Remove(del);
-                      _EMP.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public RelationModel DetailsRelaitonModel(int id)
+        public void DetailsRelaitonModel(RelationModel relationModel)
         {
-            var delt=_EMP.relationModels.Where(s=>s.Relat_Id==id).FirstOrDefault();
-            return delt;
+            throw new NotImplementedException();
         }
 
         public List<RelationModel> GetRelationModelAll()
         {
             var list = _EMP.relationModels.ToList();
-            return list;
+            return list;    
         }
 
-        public RelationModel SeachById(int id)
+        public void SeachById(int id)
         {
-            var search = _EMP.relationModels.Where(s => s.Relat_Id==id).FirstOrDefault();
-            return search; 
+            throw new NotImplementedException();
         }
 
         public void UpdateRelaitonModel(RelationModel relationModel)
         {
-           _EMP.relationModels.Update(relationModel);   
-            _EMP.SaveChanges();
+            throw new NotImplementedException();
         }
     }
 }

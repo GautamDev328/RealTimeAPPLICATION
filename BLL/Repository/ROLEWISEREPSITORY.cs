@@ -17,17 +17,14 @@ namespace CRUDAPPLICATION.BLL.Repository
             _emp.SaveChanges();
         }
 
-        public void DeleteRoleWiseModel(int id)
+        public void DeleteRoleWiseModel(RoleWiseModel roleWiseModel)
         {
-            var del = _emp.roleWise.Where(s => s.Role_ID == id).FirstOrDefault();
-              _emp.roleWise.Remove(del);    
-            _emp.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public RoleWiseModel DetailsRoleWiseModel(int id)
+        public void DetailsRoleWiseModel(RoleWiseModel roleWiseModel)
         {
-          var delt=_emp.roleWise.Where(s=>s.Role_ID==id).FirstOrDefault();
-            return delt;
+            throw new NotImplementedException();
         }
 
         public List<RoleWiseModel> GetRoleWiseRoleAll()
@@ -36,16 +33,14 @@ namespace CRUDAPPLICATION.BLL.Repository
             return list;
         }
 
-        public RoleWiseModel SearchById(int id)
+        public void SearchById(int id)
         {
-            var search = _emp.roleWise.Where(s => s.Role_ID == id).FirstOrDefault();
-            return search;
+            throw new NotImplementedException();
         }
 
         public void UpdateRoleWiseModel(RoleWiseModel roleWiseModel)
         {
-          _emp.roleWise.Update(roleWiseModel);  
-            _emp.SaveChanges();
+            throw new NotImplementedException();
         }
     }
 }

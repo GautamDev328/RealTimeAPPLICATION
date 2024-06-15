@@ -28,31 +28,6 @@ namespace CRUDAPPLICATION.APIControllers
             rolewise.AddRoleWiseonlyemployee(rolewiseonlyemployee);
           
         }
-        [HttpPut("UpdateRolseWiseOnlyEmployees")]
-        public IActionResult UpdateRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel)
-        {
-
-            rolewise.UpdateRoleWiseonlyemployee((RoleWiseOnlyEmployee)relationModel);
-            return Ok(1);
-        }
-        [HttpDelete("DeleteRolseWiseOnlyEmployees")]
-        public IActionResult DeleteRoleWiseonlyemployee(int id)
-        {
-            rolewise.DeleteRoleWiseonlyemployee(id);
-            return Ok(1);
-        }
-        [HttpGet("SearchRolseWiseOnlyEmployees")]
-        public RoleWiseOnlyEmployee Seach(int id)
-        {
-            var seach=rolewise.SeachById(id);
-            return seach;
-        }
-        [HttpGet("DetaiRoleWiseOnlyEmployees")]
-        public RoleWiseOnlyEmployee DetailsRoleWiseonlyemployee(int id)
-        {
-            var details = rolewise.DetailsRoleWiseonlyemployee(id);
-            return details;
-        }
     }
 
 }
