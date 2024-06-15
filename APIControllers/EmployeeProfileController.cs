@@ -28,14 +28,14 @@ namespace CRUDAPPLICATION.Controllers
             return a;
         }
 
-        [HttpDelete("Delete")]
+        [HttpDelete("DeleteData")]
         public IActionResult Delete(int id)
         {
             var deletedProfile = _employeeRepository.delete(id);
-            if (deletedProfile == null)
-            {
-                return NotFound(); // Return 404 Not Found if the profile with the given id was not found
-            }
+            //if (deletedProfile == null)
+            //{
+            //    return NotFound(); // Return 404 Not Found if the profile with the given id was not found
+            //}
             return Ok(deletedProfile); // Return the deleted profile
         }
 
@@ -66,6 +66,12 @@ namespace CRUDAPPLICATION.Controllers
                 return StatusCode(500, $"An error occurred while inserting the employee: {ex.Message}");
                 // Return 500 Internal Server Error if an exception occurs during insertion
             }
+        }
+        [HttpGet("DetailsEmployee")]
+        public EmployeeProfile DetailsEmployeeProfile(int id)
+        {
+            var details= _employeeRepository.DetailsEmployeeProfile(id);
+            return details;
         }
     }
 }

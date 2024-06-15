@@ -4,7 +4,6 @@ namespace CRUDAPPLICATION.BLL.IRepository
 {
     public interface IEmployeeProfileRepository
     {
-        //public void AllData(EmployeeProfile employeeProfile); 
         public List<EmployeeProfile> GetAll();
         public void updateEmployeeProfile(EmployeeProfile employeeProfile);
         public EmployeeProfile Search(int id);

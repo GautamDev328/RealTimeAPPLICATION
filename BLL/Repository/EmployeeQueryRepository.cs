@@ -18,14 +18,18 @@ namespace CRUDAPPLICATION.BLL.Repository
             _employeeDbContext.SaveChanges();
         }
 
-        public void DeleteEmployeeQuery(EmployeeQuery employeeQuery)
+        public void DeleteEmployeeQuery(int id)
         {
-            throw new NotImplementedException();
+            var del = _employeeDbContext.employeeQuery.Where(s => s.Emp_Id == id).FirstOrDefault();
+                       _employeeDbContext.Remove(del);
+                     _employeeDbContext.SaveChanges();
         }
 
-        public void DetailsEmployeeQuery(EmployeeQuery employeeQuery)
+        public EmployeeQuery DetailsEmployeeQuery(int id)
         {
-            throw new NotImplementedException();
+
+            var delt = _employeeDbContext.employeeQuery.Where(s => s.Emp_Id == id).FirstOrDefault();
+            return delt;
         }
 
         public List<EmployeeQuery> GetEmployeeQueryAll()
@@ -34,14 +38,16 @@ namespace CRUDAPPLICATION.BLL.Repository
             return list;
         }
 
-        public void SearchById(int id)
+        public EmployeeQuery SearchById(int id)
         {
-            throw new NotImplementedException();
+            var search = _employeeDbContext.employeeQuery.Where(s => s.Emp_Id == id).FirstOrDefault();
+            return search;
         }
 
         public void UpdateEmployeeQuery(EmployeeQuery employeeQuery)
         {
-            throw new NotImplementedException();
+           _employeeDbContext.employeeQuery.Update(employeeQuery);  
+            _employeeDbContext.SaveChanges();
         }
     }
 }

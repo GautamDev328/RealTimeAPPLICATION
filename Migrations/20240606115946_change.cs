@@ -5,7 +5,7 @@
 namespace CRUDAPPLICATION.Migrations
 {
     /// <inheritdoc />
-    public partial class updatesoon3 : Migration
+    public partial class change : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

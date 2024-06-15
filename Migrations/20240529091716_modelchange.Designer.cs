@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUDAPPLICATION.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
-    [Migration("20240505070145_updatesoonupdate")]
-    partial class updatesoonupdate
+    [Migration("20240529091716_modelchange")]
+    partial class modelchange
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,10 @@ namespace CRUDAPPLICATION.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("City_Id"));
 
                     b.Property<string>("City_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -109,6 +113,31 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("department");
                 });
 
+            modelBuilder.Entity("CRUDAPPLICATION.Model.DesignationModel", b =>
+                {
+                    b.Property<int>("DesigId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesigId"));
+
+                    b.Property<string>("DesigDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesigName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesigType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DesigId");
+
+                    b.ToTable("designations");
+                });
+
             modelBuilder.Entity("CRUDAPPLICATION.Model.EmployeeProfile", b =>
                 {
                     b.Property<int>("id")
@@ -167,6 +196,13 @@ namespace CRUDAPPLICATION.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmployeeQueryMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("GetDateOnly")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Emp_Id");
 
                     b.ToTable("employeeQuery");
@@ -189,6 +225,63 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("gender");
                 });
 
+            modelBuilder.Entity("CRUDAPPLICATION.Model.RelationModel", b =>
+                {
+                    b.Property<int>("Relat_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Relat_Id"));
+
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Relation_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Relat_Id");
+
+                    b.ToTable("relationModels");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWiseModel", b =>
+                {
+                    b.Property<int>("Role_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Role_ID"));
+
+                    b.Property<string>("Role_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Role_ID");
+
+                    b.ToTable("roleWise");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.RoleWiseOnlyEmployee", b =>
+                {
+                    b.Property<int>("RoleWiseonlyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleWiseonlyId"));
+
+                    b.Property<string>("RoleWiseonlyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleWiseonlyId");
+
+                    b.ToTable("RoleWiseOnlyEmployees");
+                });
+
             modelBuilder.Entity("CRUDAPPLICATION.Model.StateModel", b =>
                 {
                     b.Property<int>("Id")
@@ -208,6 +301,76 @@ namespace CRUDAPPLICATION.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("states");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.UserTrail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CompanyAddress")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CorporateId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("DealerName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PartnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoDrop")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("usertrails");
                 });
 #pragma warning restore 612, 618
         }

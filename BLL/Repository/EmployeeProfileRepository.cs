@@ -16,11 +16,7 @@ namespace CRUDAPPLICATION.BLL.Repository
             employeeDbContext = _employeeDbContext;
         }
 
-        //public void AllData(EmployeeProfile employeeProfile)
-        //{
-        //    employeeDbContext.employeeProfiles.ToList().ForEach(p => p.Equals(employeeProfile));
-        //    employeeDbContext.SaveChanges();
-        //}
+      
 
         public EmployeeProfile delete(int id)
         {
@@ -53,13 +49,7 @@ namespace CRUDAPPLICATION.BLL.Repository
 
 
 
-        //public EmployeeRepository Search(int id)
-        //{
-        //employeeDbContext.employeeProfiles.Where(s => s.id == id).FirstOrDefault();
-        //    employeeDbContext.SaveChanges(true);
-
-        //}
-
+    
         public void update(EmployeeProfile employeeProfile)
         {
             employeeDbContext.employeeProfiles.Update(employeeProfile);
@@ -76,19 +66,18 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public void updateEmployeeProfile(EmployeeProfile employeeProfile)
         {
-            throw new NotImplementedException();
+            employeeDbContext.employeeProfiles.Update(employeeProfile);
+            employeeDbContext.SaveChanges();
         }
 
      
 
-        //public void DetailsEmployeeProfile(EmployeeProfile employeeProfile)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+      
         public void deleteEmployeeProfile(int id)
         {
-            throw new NotImplementedException();
+           var delete= employeeDbContext.employeeProfiles.Where(s=>s.id==id).FirstOrDefault();
+            employeeDbContext.employeeProfiles.Remove(delete);
+            employeeDbContext.SaveChanges();
         }
 
         public EmployeeProfile DetailsEmployeeProfile(int id)

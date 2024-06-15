@@ -12,7 +12,7 @@ namespace CRUDAPPLICATION.Controllers
         private readonly RELATIONREPOSITORY _relationRepository;
         public RelationController(RELATIONREPOSITORY relationRepository)
         {
-      this._relationRepository=relationRepository;
+               this._relationRepository=relationRepository;
         }
         [HttpPost("CreateRelaiton")]
         public void CreateRelaitonModel(RelationModel relationModel)
@@ -26,5 +26,31 @@ namespace CRUDAPPLICATION.Controllers
             var list = _relationRepository.GetRelationModelAll();
             return list;
         }
+        [HttpPut("UpdatesRelation")]
+        public IActionResult UpdateRelaiton(RelationModel relationModel)
+        {
+            _relationRepository.UpdateRelaitonModel(relationModel);
+            return Ok(1);
+
+        }
+        [HttpGet("DetailsRelation")]
+        public RelationModel DetailsRelaitonModel(int id)
+        {
+            var delt = _relationRepository.DetailsRelaitonModel(id);
+            return delt;
+        }
+        [HttpDelete("DeleteRelation")]
+        public IActionResult DeleteRelaitonModel(int id)
+        {
+            _relationRepository.DeleteRelaitonModel(id);
+            return Ok(1);
+        }
+        [HttpGet("SearchRelation")]
+        public RelationModel SeachById(int id)
+        {
+            var delt = _relationRepository.SeachById(id);
+            return delt;
+        }
+
     }
 }

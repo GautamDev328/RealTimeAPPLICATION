@@ -5,7 +5,7 @@
 namespace CRUDAPPLICATION.Migrations
 {
     /// <inheritdoc />
-    public partial class updatesson : Migration
+    public partial class updatemodeladmin : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

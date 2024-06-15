@@ -21,11 +21,13 @@ namespace CRUDAPPLICATION.DATABASE
         public DbSet<DesignationModel> designations { get; set; }
         public DbSet<Gender> gender { get; set;}
         //public DbSet<HRLOGIN> hrlogin { get; set; }
-        //public DbSet<AdminLogin> adminlogin { get; set; }
+        public DbSet<AdminLogin> adminlogin { get; set; }
         //public DbSet<EmployeeLogin> EmployeeLogins { get; set; }
         public DbSet<RelationModel> relationModels { get; set; }
         public DbSet<RoleWiseModel> roleWise { get; set; }
         public DbSet<RoleWiseOnlyEmployee> RoleWiseOnlyEmployees { get; set; }
+        public DbSet<UserTrail> usertrails { get; set;}
+        public DbSet<PartnerLogin> partners { get; set;}
 
 
     }

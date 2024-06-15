@@ -26,5 +26,31 @@ namespace CRUDAPPLICATION.Controllers
             var list = _genderRepository.GetGenderAll();
             return list;
         }
+        [HttpPut("UpdateGender")]
+        public IActionResult UpdateGender(Gender gender)
+        {
+            _genderRepository.UpdateGender(gender);
+            return Ok(1);
+        }
+        [HttpDelete("DeleteGender")]
+        public IActionResult DeleteGender(int id)
+        {
+            _genderRepository.DeleteGender(id);
+            return Ok(1);
+        }
+        [HttpGet("SearchGender")]
+        public Gender Search(int id)
+        {
+            var search= _genderRepository.SearchById(id);   
+            return search;
+        }
+
+        [HttpGet("DetailsGender")]
+        public Gender DetailGender(int id)
+        {
+            var details = _genderRepository.SearchById(id);
+            return details;
+        }
+
     }
 }

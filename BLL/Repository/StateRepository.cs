@@ -19,19 +19,24 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         }
 
-        public void DeleteState(StateModel state)
+        public void DeleteState(int id)
         {
-            throw new NotImplementedException();
+            var delete = _employeedb.states.Where(s => s.Id == id).FirstOrDefault();
+                           _employeedb.states.Remove(delete);   
+                            _employeedb.SaveChanges();
         }
 
-        public void DetailsState(StateModel state)
+        public StateModel DetailsState(int id)
         {
-            throw new NotImplementedException();
+           var details= _employeedb.states.Where(s => s.Id == id).FirstOrDefault();
+            return details;
         }
 
-        public void SeachById(int id)
+        public StateModel SeachById(int id)
         {
-            throw new NotImplementedException();
+
+         var search=   _employeedb.states.Where(s => s.Id == id).FirstOrDefault();
+            return search;
         }
 
         public List<StateModel> states()
@@ -42,7 +47,8 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public void UpdateState(StateModel state)
         {
-            throw new NotImplementedException();
+          _employeedb.Update(state);
+            _employeedb.SaveChanges();
         }
     }
 }

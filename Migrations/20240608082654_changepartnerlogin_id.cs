@@ -5,23 +5,26 @@
 namespace CRUDAPPLICATION.Migrations
 {
     /// <inheritdoc />
-    public partial class updatesoonupdate : Migration
+    public partial class changepartnerlogin_id : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "states",
+                name: "partners",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StateId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StateName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PartnerId = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    MobileNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_states", x => x.Id);
+                    table.PrimaryKey("PK_partners", x => x.Id);
                 });
         }
 
@@ -29,7 +32,7 @@ namespace CRUDAPPLICATION.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "states");
+                name: "partners");
         }
     }
 }

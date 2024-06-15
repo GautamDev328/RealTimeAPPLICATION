@@ -1,15 +1,11 @@
-using CRUDAPPLICATION.BLL.IRepository;
 using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.DATABASE;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Identity;
 
 
-//using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.EntityFrameworkCore;
-//using Microsoft.Extensions.Options;
-//using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,7 +40,9 @@ builder.Services.AddScoped<GenderRepository>();
 builder.Services.AddScoped<RELATIONREPOSITORY>();
 builder.Services.AddScoped<ROLEWISEREPSITORY>();
 builder.Services.AddScoped<RolewiseonlyemployeeRepository>();
-
+builder.Services.AddScoped<UserTrailRepositroy>();
+builder.Services.AddScoped<AdminLoginRepository>();
+builder.Services.AddScoped<PartnerLoginRepositroy>();
 
 builder.Services.AddHttpContextAccessor();
 //builder.Services.AddControllersWithViews();

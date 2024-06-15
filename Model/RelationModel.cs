@@ -9,5 +9,7 @@ namespace CRUDAPPLICATION.Model
         public string Relation_Name { get; set; }
         public string MobileNumber { get; set; }
         
+
+
     }
 }

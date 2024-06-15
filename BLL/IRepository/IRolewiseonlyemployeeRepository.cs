@@ -7,9 +7,9 @@ namespace CRUDAPPLICATION.BLL.IRepository
         public List<RoleWiseOnlyEmployee> GetAllRoleWiseonlyemployee();
         public void AddRoleWiseonlyemployee(RoleWiseOnlyEmployee rolewiseonlyemployee);
         public void UpdateRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel);
-        public void DeleteRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel);
-        public void DetailsRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel);
-        public void SeachById(int id);
+        public void DeleteRoleWiseonlyemployee(int id);
+        public RoleWiseOnlyEmployee DetailsRoleWiseonlyemployee(int id);
+        public RoleWiseOnlyEmployee SeachById(int id);
 
 
     }

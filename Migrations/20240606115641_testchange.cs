@@ -5,7 +5,7 @@
 namespace CRUDAPPLICATION.Migrations
 {
     /// <inheritdoc />
-    public partial class soom1 : Migration
+    public partial class testchange : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

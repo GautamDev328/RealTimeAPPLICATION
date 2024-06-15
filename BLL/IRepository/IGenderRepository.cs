@@ -7,8 +7,8 @@ namespace CRUDAPPLICATION.BLL.IRepository
         public List<Gender> GetGenderAll();
         public void CreateGender(Gender gender);
         public void UpdateGender(Gender gender);
-        public void DeleteDepartment(Gender gender);
-        public void SearchById(int id);
-        public void DetailsDepartment(Gender gender);
+        public void DeleteGender(int id);
+        public Gender SearchById(int id);
+        public Gender DetailsGender(int id);
     }
 }

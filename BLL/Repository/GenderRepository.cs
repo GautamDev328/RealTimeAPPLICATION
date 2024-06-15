@@ -18,30 +18,35 @@ namespace CRUDAPPLICATION.BLL.Repository
             employeeDbContext.SaveChanges();
         }
 
-        public void DeleteDepartment(Gender gender)
+        public void DeleteGender(int id)
         {
-            throw new NotImplementedException();
+            var del = employeeDbContext.gender.Where(s => s.Gen_Id == id).FirstOrDefault();
+            employeeDbContext.gender.Remove(del);
+            employeeDbContext.SaveChanges();
         }
 
-        public void DetailsDepartment(Gender gender)
+        public Gender DetailsGender(int id)
         {
-            throw new NotImplementedException();
+           var delt = employeeDbContext.gender.Where(s => s.Gen_Id == id).FirstOrDefault();
+            return delt;
         }
 
         public List<Gender> GetGenderAll()
         {
-            var list= employeeDbContext.gender.ToList();    
+            var list = employeeDbContext.gender.ToList();
             return list;
         }
 
-        public void SearchById(int id)
+        public Gender SearchById(int id)
         {
-            throw new NotImplementedException();
+            var search = employeeDbContext.gender.Where(s => s.Gen_Id == id).FirstOrDefault();
+            return search;
         }
 
         public void UpdateGender(Gender gender)
         {
-            throw new NotImplementedException();
+            employeeDbContext.gender.Update(gender);
+            employeeDbContext.SaveChanges();
         }
     }
 }

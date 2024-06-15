@@ -19,14 +19,18 @@ namespace CRUDAPPLICATION.BLL.Repository
             dbcontext.SaveChanges();
         }
 
-        public void DeleteRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel)
+        public void DeleteRoleWiseonlyemployee(int id)
         {
-            throw new NotImplementedException();
+            var delete = dbcontext.RoleWiseOnlyEmployees.Where(s => s.RoleWiseonlyId == id).FirstOrDefault();
+                  dbcontext.RoleWiseOnlyEmployees.Remove(delete);
+                dbcontext.SaveChanges();
         }
 
-        public void DetailsRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel)
+        public RoleWiseOnlyEmployee DetailsRoleWiseonlyemployee(int id)
         {
-            throw new NotImplementedException();
+           var details= dbcontext.RoleWiseOnlyEmployees.Where(s=>s.RoleWiseonlyId==id).FirstOrDefault();
+            return details;
+
         }
 
         public List<RoleWiseOnlyEmployee> GetAllRoleWiseonlyemployee()
@@ -35,14 +39,16 @@ namespace CRUDAPPLICATION.BLL.Repository
             return list;
         }
 
-        public void SeachById(int id)
+        public RoleWiseOnlyEmployee SeachById(int id)
         {
-            throw new NotImplementedException();
+            var search = dbcontext.RoleWiseOnlyEmployees.Where(s => s.RoleWiseonlyId == id).FirstOrDefault();
+            return search;
         }
 
         public void UpdateRoleWiseonlyemployee(RoleWiseOnlyEmployee relationModel)
         {
-            throw new NotImplementedException();
+          dbcontext.RoleWiseOnlyEmployees.Update(relationModel);
+            dbcontext.SaveChanges();
         }
     }
 }
