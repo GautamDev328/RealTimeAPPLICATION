@@ -10,7 +10,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         public RolewiseonlyemployeeRepository(EmployeeDbContext _dbcontext)
         {
             this.dbcontext = _dbcontext;
-                
+
         }
 
         public void AddRoleWiseonlyemployee(RoleWiseOnlyEmployee rolewiseonlyemployee)

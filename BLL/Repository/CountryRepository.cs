@@ -26,7 +26,7 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public void DeleteCountry(int id)
         {
-          var a=  employeeDbContext.countries.Where(s => s.Id == id).FirstOrDefault();
+            var a = employeeDbContext.countries.Where(s => s.Id == id).FirstOrDefault();
             employeeDbContext.countries.Remove(a);
             employeeDbContext.SaveChanges();
 
@@ -34,25 +34,25 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public Country DetailsCountry(int id)
         {
-           var a=employeeDbContext.countries.Where(s=>s.Id == id).FirstOrDefault();
+            var a = employeeDbContext.countries.Where(s => s.Id == id).FirstOrDefault();
             return a;
-         }
+        }
 
         public List<Country> GETCOUNTRYALL()
         {
-           var list=employeeDbContext.countries.ToList();
+            var list = employeeDbContext.countries.ToList();
             return list;
         }
 
         public Country SearChById(int id)
         {
-           var a= employeeDbContext.countries.Where(s=>s.Id==id).FirstOrDefault();
+            var a = employeeDbContext.countries.Where(s => s.Id == id).FirstOrDefault();
             return a;
         }
 
         public void UpdateCountry(Country country)
         {
-           employeeDbContext.countries.Update(country);
+            employeeDbContext.countries.Update(country);
             employeeDbContext.SaveChanges();
         }
     }

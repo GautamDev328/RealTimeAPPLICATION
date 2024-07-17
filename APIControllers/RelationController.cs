@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -12,7 +11,7 @@ namespace CRUDAPPLICATION.Controllers
         private readonly RELATIONREPOSITORY _relationRepository;
         public RelationController(RELATIONREPOSITORY relationRepository)
         {
-      this._relationRepository=relationRepository;
+            this._relationRepository = relationRepository;
         }
         [HttpPost("CreateRelaiton")]
         public void CreateRelaitonModel(RelationModel relationModel)

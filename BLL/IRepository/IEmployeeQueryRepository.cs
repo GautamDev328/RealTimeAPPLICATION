@@ -1,5 +1,4 @@
 ﻿using CRUDAPPLICATION.Model;
-using Microsoft.EntityFrameworkCore;
 
 namespace CRUDAPPLICATION.BLL.IRepository
 {

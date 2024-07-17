@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -13,18 +12,18 @@ namespace CRUDAPPLICATION.Controllers
         public CountryController(CountryRepository _countryRepository)
         {
             this.countryRepository = _countryRepository;
-                
+
         }
         [HttpPost("CreateCountry")]
         public void CreateCountry(Country country)
         {
             countryRepository.CreateCountry(country);
-            
+
         }
         [HttpGet("GETCOUNTRYALL")]
-     public    List<Country> GETCOUNTRYALL()
+        public List<Country> GETCOUNTRYALL()
         {
-           var list=  countryRepository.GETCOUNTRYALL();
+            var list = countryRepository.GETCOUNTRYALL();
             return list;
         }
         [HttpPut("UpdateCountry")]

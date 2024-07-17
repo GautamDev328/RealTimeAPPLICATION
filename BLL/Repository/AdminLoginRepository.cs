@@ -20,13 +20,13 @@
 //            dbContext.SaveChanges();
 //        }
 
-    
+
 //        public List<AdminLogin> GetAllAdminLogin()
 //        {
 //            var list = dbContext.adminlogin.ToList();
 //            return list;
 //        }
 
-    
+
 //    }
 //}

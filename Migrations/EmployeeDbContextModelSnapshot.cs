@@ -222,6 +222,29 @@ namespace CRUDAPPLICATION.Migrations
                     b.ToTable("gender");
                 });
 
+            modelBuilder.Entity("CRUDAPPLICATION.Model.PaymentCustomerExtraUserModel", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Device_Serials")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GstTax")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherCharges")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("paymentCustomeExtraUserModels");
+                });
+
             modelBuilder.Entity("CRUDAPPLICATION.Model.RelationModel", b =>
                 {
                     b.Property<int>("Relat_Id")
@@ -298,6 +321,67 @@ namespace CRUDAPPLICATION.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("states");
+                });
+
+            modelBuilder.Entity("CRUDAPPLICATION.Model.UserTrailsModels", b =>
+                {
+                    b.Property<int>("UsertrailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsertrailId"));
+
+                    b.Property<string>("CompanyAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Confrompassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CorporateId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DealerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PartnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photodrop")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UsertrailId");
+
+                    b.ToTable("userTrails");
                 });
 #pragma warning restore 612, 618
         }

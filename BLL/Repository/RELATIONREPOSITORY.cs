@@ -9,7 +9,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         EmployeeDbContext _EMP;
         public RELATIONREPOSITORY(EmployeeDbContext employee)
         {
-                this._EMP = employee;
+            this._EMP = employee;
         }
         public void CreateRelaitonModel(RelationModel relationModel)
         {
@@ -30,7 +30,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         public List<RelationModel> GetRelationModelAll()
         {
             var list = _EMP.relationModels.ToList();
-            return list;    
+            return list;
         }
 
         public void SeachById(int id)

@@ -4,16 +4,16 @@ using CRUDAPPLICATION.Model;
 
 namespace CRUDAPPLICATION.BLL.Repository
 {
-    public class DesignationRepository:IDesignationRepository
+    public class DesignationRepository : IDesignationRepository
     {
         EmployeeDbContext EmployeeDb;
         public DesignationRepository(EmployeeDbContext _employeeDb)
         {
             this.EmployeeDb = _employeeDb;
-                
+
         }
 
-       
+
         public void CreateDesignation(DesignationModel designationModel)
         {
             EmployeeDb.designations.Add(designationModel);
@@ -32,7 +32,7 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public List<DesignationModel> GetALLDesignationData()
         {
-           var list=EmployeeDb.designations.ToList();
+            var list = EmployeeDb.designations.ToList();
             return list;
         }
 

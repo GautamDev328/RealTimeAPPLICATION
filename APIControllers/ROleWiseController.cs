@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -12,7 +11,7 @@ namespace CRUDAPPLICATION.Controllers
         private readonly ROLEWISEREPSITORY _Irolewoserepsoitory;
         public ROleWiseController(ROLEWISEREPSITORY roleWiseRepository)
         {
-              this._Irolewoserepsoitory=roleWiseRepository;
+            this._Irolewoserepsoitory = roleWiseRepository;
         }
         [HttpPost("CreateRoleWiseModel")]
         public void CreateRoleWiseModel(RoleWiseModel roleWiseModel)

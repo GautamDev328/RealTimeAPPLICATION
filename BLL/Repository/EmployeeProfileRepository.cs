@@ -2,8 +2,6 @@
 using CRUDAPPLICATION.BLL.IRepository;
 using CRUDAPPLICATION.DATABASE;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 //using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace CRUDAPPLICATION.BLL.Repository
@@ -79,7 +77,7 @@ namespace CRUDAPPLICATION.BLL.Repository
             throw new NotImplementedException();
         }
 
-     
+
 
         //public void DetailsEmployeeProfile(EmployeeProfile employeeProfile)
         //{

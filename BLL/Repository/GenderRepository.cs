@@ -10,7 +10,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         public GenderRepository(EmployeeDbContext _employeeDbContext)
         {
             this.employeeDbContext = _employeeDbContext;
-                
+
         }
         public void CreateGender(Gender gender)
         {
@@ -30,7 +30,7 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public List<Gender> GetGenderAll()
         {
-            var list= employeeDbContext.gender.ToList();    
+            var list = employeeDbContext.gender.ToList();
             return list;
         }
 

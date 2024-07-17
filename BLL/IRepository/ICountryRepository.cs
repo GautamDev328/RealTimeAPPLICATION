@@ -7,8 +7,8 @@ namespace CRUDAPPLICATION.BLL.IRepository
         public List<Country> GETCOUNTRYALL();
         public void CreateCountry(Country country);
         public void UpdateCountry(Country country);
-        public void DeleteCountry(int id );
-        public Country DetailsCountry(int id );
+        public void DeleteCountry(int id);
+        public Country DetailsCountry(int id);
         public Country SearChById(int id);
     }
 

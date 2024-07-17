@@ -12,40 +12,40 @@ namespace CRUDAPPLICATION.Controllers
         public CityController(CityRepository _cityRepository)
         {
             this.cityRepository = _cityRepository;
-                
+
         }
         [HttpPost("CREATECITY")]
         public IActionResult CreateCity(City city)
         {
             cityRepository.CreateCity(city);
             return Ok(1);
-            
+
 
         }
         [HttpGet("ALLDATACITY")]
         public List<City> GetCities()
         {
-            var list=cityRepository.GetCities();
+            var list = cityRepository.GetCities();
             return list;
-         }
+        }
 
         [HttpPost("UpdateCity")]
-     public IActionResult UpdateCity(City city)
+        public IActionResult UpdateCity(City city)
         {
-        cityRepository.UpdateCity(city);
+            cityRepository.UpdateCity(city);
             return Ok(1);
         }
         [HttpGet("SearchById")]
         public IActionResult SearchById(int id)
         {
-          var a=  cityRepository.SearchById(id);
+            var a = cityRepository.SearchById(id);
             return Ok(a);
         }
         [HttpGet("DetailsCity")]
         public IActionResult DetailCity(int id)
         {
-         var a= cityRepository.DetailCity(id);
-            return Ok(a) ;
+            var a = cityRepository.DetailCity(id);
+            return Ok(a);
         }
         [HttpDelete("DeleteCity")]
         public IActionResult DeleteCity(int id)

@@ -9,7 +9,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         EmployeeDbContext _employeedb;
         public StateRepository(EmployeeDbContext employeeDb)
         {
-           this. _employeedb = employeeDb;
+            this._employeedb = employeeDb;
 
         }
         public void CreateState(StateModel state)

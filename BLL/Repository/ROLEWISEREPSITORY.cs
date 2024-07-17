@@ -9,11 +9,11 @@ namespace CRUDAPPLICATION.BLL.Repository
         EmployeeDbContext _emp;
         public ROLEWISEREPSITORY(EmployeeDbContext emp)
         {
-                this._emp = emp;
+            this._emp = emp;
         }
         public void CreateRoleWiseModel(RoleWiseModel roleWiseModel)
         {
-          _emp.roleWise.Add(roleWiseModel);
+            _emp.roleWise.Add(roleWiseModel);
             _emp.SaveChanges();
         }
 

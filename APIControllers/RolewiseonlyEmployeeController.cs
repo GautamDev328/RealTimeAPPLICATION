@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.APIControllers
@@ -23,10 +22,10 @@ namespace CRUDAPPLICATION.APIControllers
 
         }
         [HttpPost("InsertRolseWiseOnlyEmployee")]
-      public   void AddRoleWiseonlyemployee(RoleWiseOnlyEmployee rolewiseonlyemployee)
+        public void AddRoleWiseonlyemployee(RoleWiseOnlyEmployee rolewiseonlyemployee)
         {
             rolewise.AddRoleWiseonlyemployee(rolewiseonlyemployee);
-          
+
         }
     }
 

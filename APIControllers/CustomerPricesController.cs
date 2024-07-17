@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -22,31 +21,31 @@ namespace CRUDAPPLICATION.Controllers
             return list;
         }
         [HttpPost("CreateCustomerPrice")]
-        public IActionResult  CreateCustomerPrice(CustomerPrice customerPrice)
+        public IActionResult CreateCustomerPrice(CustomerPrice customerPrice)
         {
-          
+
             _customerPricesRepository.CreateCustomerPrice(customerPrice);
             return Ok(1);
 
-          
+
 
         }
         [HttpPut("UpdateCustomerPrice")]
         public IActionResult UpdateCustomerPrice(CustomerPrice customerPrice)
         {
-         _customerPricesRepository.UpdateCustomerPrice(customerPrice);
+            _customerPricesRepository.UpdateCustomerPrice(customerPrice);
             return Ok(1);
         }
         [HttpDelete("DeleteCustomerPrice")]
         public IActionResult DeleteCustomerPrice(int Id)
         {
-                  _customerPricesRepository.DeleteCustomerPrice(Id);
+            _customerPricesRepository.DeleteCustomerPrice(Id);
             return Ok(1);
         }
         [HttpGet("DetailCustomerPrice")]
         public CustomerPrice DetailsCustomerPrice(int ID)
         {
-            var details= _customerPricesRepository.DetailsCustomerPrice(ID);
+            var details = _customerPricesRepository.DetailsCustomerPrice(ID);
             return details;
         }
         [HttpGet("SearchCustomerPrice")]

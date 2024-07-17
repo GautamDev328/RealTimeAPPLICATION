@@ -10,7 +10,7 @@ namespace CRUDAPPLICATION.BLL.Repository
         public CityRepository(EmployeeDbContext EmployeeDbContext)
 
         {
-           this. _EmployeeDbContext = EmployeeDbContext;
+            this._EmployeeDbContext = EmployeeDbContext;
 
         }
 
@@ -22,9 +22,9 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public void DeleteCity(int id)
         {
-          var a=  _EmployeeDbContext.citys.Where(s => s.City_Id == id).FirstOrDefault();
-                  _EmployeeDbContext.citys.Remove(a);
-                 _EmployeeDbContext.SaveChanges();
+            var a = _EmployeeDbContext.citys.Where(s => s.City_Id == id).FirstOrDefault();
+            _EmployeeDbContext.citys.Remove(a);
+            _EmployeeDbContext.SaveChanges();
 
 
         }
@@ -41,13 +41,13 @@ namespace CRUDAPPLICATION.BLL.Repository
             return list;
         }
 
-       
 
-        public void  UpdateCity(City city)
+
+        public void UpdateCity(City city)
         {
-          _EmployeeDbContext.citys.Update(city);
-             _EmployeeDbContext.SaveChanges();
-         
+            _EmployeeDbContext.citys.Update(city);
+            _EmployeeDbContext.SaveChanges();
+
 
         }
 
@@ -61,7 +61,7 @@ namespace CRUDAPPLICATION.BLL.Repository
 
         public City SearchById(int id)
         {
-            var b= _EmployeeDbContext.citys.Where(s => s.City_Id == id).FirstOrDefault();
+            var b = _EmployeeDbContext.citys.Where(s => s.City_Id == id).FirstOrDefault();
             return b;
         }
     }

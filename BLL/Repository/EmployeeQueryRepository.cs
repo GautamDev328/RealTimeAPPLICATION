@@ -9,12 +9,12 @@ namespace CRUDAPPLICATION.BLL.Repository
         EmployeeDbContext _employeeDbContext;
         public EmployeeQueryRepository(EmployeeDbContext employeeDbContext)
         {
-               
+
             this._employeeDbContext = employeeDbContext;
         }
         public void CreateEmployeeQuery(EmployeeQuery employeeQuery)
         {
-          _employeeDbContext.employeeQuery.Add(employeeQuery);
+            _employeeDbContext.employeeQuery.Add(employeeQuery);
             _employeeDbContext.SaveChanges();
         }
 

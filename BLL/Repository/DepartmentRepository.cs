@@ -4,25 +4,25 @@ using CRUDAPPLICATION.Model;
 
 namespace CRUDAPPLICATION.BLL.Repository
 {
-    public class DepartmentRepository:IDepartmentRepository
+    public class DepartmentRepository : IDepartmentRepository
     {
         EmployeeDbContext employeeDbContext;
         public DepartmentRepository(EmployeeDbContext _employeeDbContext)
         {
             this.employeeDbContext = _employeeDbContext;
-                
+
         }
-       
+
 
         public List<Department> GetAllDepartmentData()
         {
-           var list=employeeDbContext.department.ToList();
+            var list = employeeDbContext.department.ToList();
             return list;
         }
 
         public void CreateDepartment(Department department)
         {
-           employeeDbContext.department.Add(department);    
+            employeeDbContext.department.Add(department);
             employeeDbContext.SaveChanges();
         }
 

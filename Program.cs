@@ -1,8 +1,5 @@
-using CRUDAPPLICATION.BLL.IRepository;
 using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.DATABASE;
-using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Identity;
 
 
 //using Microsoft.Extensions.DependencyInjection;
@@ -21,29 +18,25 @@ builder.Services.AddDbContext<EmployeeDbContext>(opt => opt.UseSqlServer(builder
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 
-//builder.Services.AddTransient<IStateRepository, StateRepository>();
 
-//builder.Services.AddScoped<StateRepository>();
 
 builder.Services.AddScoped<EmployeeProfileRepository>();
 builder.Services.AddScoped<StateRepository>();
 
 builder.Services.AddScoped<CustomerPricesRespository>();
-//builder.Services.AddScoped<AdminLoginRepository>();
 builder.Services.AddScoped<CountryRepository>();
 builder.Services.AddScoped<CityRepository>();
 builder.Services.AddScoped<DepartmentRepository>();
 builder.Services.AddScoped<DesignationRepository>();
-//builder.Services.AddScoped<EmployeeLoginRepository>();
 builder.Services.AddScoped<EmployeeQueryRepository>();
 builder.Services.AddScoped<GenderRepository>();
-//builder.Services.AddScoped<HRLOGINRESPOROTY>();
 builder.Services.AddScoped<RELATIONREPOSITORY>();
 builder.Services.AddScoped<ROLEWISEREPSITORY>();
 builder.Services.AddScoped<RolewiseonlyemployeeRepository>();
+builder.Services.AddScoped<UserTrailRepository>();
+builder.Services.AddScoped<CustomerPaymentRepository>();
 
 
 builder.Services.AddHttpContextAccessor();

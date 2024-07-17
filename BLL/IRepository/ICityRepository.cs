@@ -1,5 +1,4 @@
-﻿using CRUDAPPLICATION.Controllers;
-using CRUDAPPLICATION.Model;
+﻿using CRUDAPPLICATION.Model;
 
 namespace CRUDAPPLICATION.BLL.IRepository
 {

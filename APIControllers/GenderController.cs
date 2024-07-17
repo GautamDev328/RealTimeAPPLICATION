@@ -1,6 +1,5 @@
 ﻿using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -12,7 +11,7 @@ namespace CRUDAPPLICATION.Controllers
         private readonly GenderRepository _genderRepository;
         public GenderController(GenderRepository genderRepository)
         {
-                this._genderRepository= genderRepository;
+            this._genderRepository = genderRepository;
         }
         [HttpPost("CreateGender")]
         public void CreateGender(Gender gender)

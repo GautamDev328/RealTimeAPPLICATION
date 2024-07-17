@@ -1,7 +1,6 @@
 ﻿//using CRUDAPPLICATION.BLL;
 using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUDAPPLICATION.Controllers
@@ -71,4 +70,3 @@ namespace CRUDAPPLICATION.Controllers
 }
 
 
-      
