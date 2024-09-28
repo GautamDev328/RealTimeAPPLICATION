@@ -4,10 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DATABASE\EmployeeDbContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Model\EmployeeProfile.cs~RF19bc0e2c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="DATABASE\EmployeeDbContext.cs" />
   </ItemGroup>
 
   <ItemGroup>
