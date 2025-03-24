@@ -1,63 +1,78 @@
+using CRUDAPPLICATION.BLL.IRepository;
 using CRUDAPPLICATION.BLL.Repository;
 using CRUDAPPLICATION.DATABASE;
-
-
-//using Microsoft.Extensions.DependencyInjection;
-
+using CRUDAPPLICATION.Model;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-//using Microsoft.Extensions.Options;
-//using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Extra
+// Add authentication services
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/RegisterationFromCore/Login"; // Adjust as needed
+              options.AccessDeniedPath = "/RegisterationFromCore/Login";
+     
 
-builder.Services.AddControllers();
-builder.Services.AddDbContext<EmployeeDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DataConnection")));
-
-
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
-
-
-
-builder.Services.AddScoped<EmployeeProfileRepository>();
-builder.Services.AddScoped<StateRepository>();
-
-builder.Services.AddScoped<CustomerPricesRespository>();
-builder.Services.AddScoped<CountryRepository>();
-builder.Services.AddScoped<CityRepository>();
-builder.Services.AddScoped<DepartmentRepository>();
-builder.Services.AddScoped<DesignationRepository>();
-builder.Services.AddScoped<EmployeeQueryRepository>();
-builder.Services.AddScoped<GenderRepository>();
-builder.Services.AddScoped<RELATIONREPOSITORY>();
-builder.Services.AddScoped<ROLEWISEREPSITORY>();
-builder.Services.AddScoped<RolewiseonlyemployeeRepository>();
-builder.Services.AddScoped<UserTrailRepository>();
-builder.Services.AddScoped<CustomerPaymentRepository>();
+              options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+              
+    });
 
 
-builder.Services.AddHttpContextAccessor();
-//builder.Services.AddControllersWithViews();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+
+void ConfigureServices(IServiceCollection services)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+    services.AddSession(options =>
+    {
+        options.IdleTimeout = TimeSpan.FromMinutes(5); // Set session timeout
+        options.Cookie.HttpOnly = true; // Make the session cookie HttpOnly
+        options.Cookie.IsEssential = true; // Make the session cookie essential for the app
+    });
+    // Other service configurations
 }
 
-app.UseHttpsRedirection();
-//app.UseAuthentication();
+
+
+void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+          app.UseSession();
+          // other middleware
+}
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
+app.UseHttpsRedirection();// Add extra
+
+app.UseStaticFiles();
+
+app.UseRouting();
+//app.UseSession();//Add extra
+
+app.UseAuthentication(); // Add this line
 app.UseAuthorization();
 
-app.MapControllers();
+//app.UseAuthorization();
+//app.UseSession();//Add extra
+
+app.MapControllerRoute(
+    name: "default",
+        //pattern: "{controller=CONSUMEAPI}/{action=Index}/{id?}");
+        pattern: "{controller=RegisterationFromCore}/{action=Login}/{id?}");
+          //pattern: "{controller=DisplayImage}/{action=DisplayImage}/{id?}");
 
 app.Run();
+
+
+
